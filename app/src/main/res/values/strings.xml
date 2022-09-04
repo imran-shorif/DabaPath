@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DabaPath</string>
+    <string name="todo">TODO</string>
+    <string name="create_an_account">Create an Account!</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account">Already Have an Account?</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up!</string>
+    <string name="create_a_free_account">Create A Free Account!</string>
+    <string name="log_in_to_dabapath">Log In to DabaPath</string>
+    <string name="username_email">Username/Email</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="Sign_up">Sign Up</string>
+    <string name="Log_in">Log In</string>
+    <string name="enter_your_username">Enter Your Username</string>
+    <string name="quick_play">Quick Play</string>
+    <string name="puzzles">Puzzles</string>
+    <string name="news_articles">News / Articles</string>
+    <string name="blogs">Blogs</string>
+    <string name="puzzle_of_the_day">Puzzle of the Day!</string>
+    <string name="endgame_puzzles">Endgame Puzzles</string>
+    <string name="puzzles_random">Puzzles (Random)</string>
+    <string name="opening_puzzles">Opening Puzzles</string>
+    <string name="middle_game_puzzles">Middle-game Puzzles</string>
+    <string name="quot_find_the_mate_quot_puzzles">\"Find the mate\" Puzzles</string>
+    <string name="any_suggestions">Any Suggestions?</string>
+</resources>
