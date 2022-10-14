@@ -2,4 +2,10 @@
 <resources>
     <item name="text" type="id" />
     <item name="listView" type="id" />
+    <item name="home" type="id" />
+    <item name="quickPlay" type="id" />
+    <item name="puzzles" type="id" />
+    <item name="flfragment" type="id" />
+    <item name="news" type="id" />
+    <item name="blogs" type="id" />
 </resources>

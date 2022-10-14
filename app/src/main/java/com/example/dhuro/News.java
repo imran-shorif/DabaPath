@@ -1,28 +1,20 @@
 package com.example.dhuro;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 
-public class News extends Home {
+import java.io.*;
+import androidx.fragment.app.Fragment;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+public class News extends Fragment {
 
-        Button buttonH = findViewById(R.id.button);
-        buttonH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nowHome((View) view);
-            }});
+    public News(){
     }
 
-    public void nowHome(View view) {
-        Intent Home = new Intent(News.this, Home.class);
-        startActivity(Home);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_news, container, false);
     }
 }

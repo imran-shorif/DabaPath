@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/quickPlay"
+        android:title="Quick Play"
+        android:icon="@drawable/quickplayicon"/>
+    <item
+        android:id="@+id/puzzles"
+        android:title="Puzzles"
+        android:icon="@drawable/puzzlesicon"/>
+    <item
+        android:id="@+id/news"
+        android:title="News"
+        android:icon="@drawable/newsicon"/>
+    <item
+        android:id="@+id/blogs"
+        android:title="Blogs"
+        android:icon="@drawable/blogsicon"/>
+</menu>

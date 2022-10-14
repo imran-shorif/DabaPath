@@ -14,9 +14,6 @@
         android:theme="@style/Theme.Dhuro"
         tools:targetApi="31">
         <activity
-            android:name=".Fonts"
-            android:exported="false" />
-        <activity
             android:name=".Puzzles"
             android:exported="false" />
         <activity

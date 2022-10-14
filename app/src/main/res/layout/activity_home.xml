@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
-    android:background="#1c1c1d">
-
+    android:background="#1c1c1d"
+    tools:ignore="HardcodedText">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo"
         android:layout_width="156dp"
         android:layout_height="87dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="643dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/button"
@@ -34,7 +34,7 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/ic_baseline_menu_24"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,62 +48,8 @@
         android:background="@drawable/ic_baseline_account_circle_24"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="337dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="37dp"
-        android:onClick="nowQuick"
-        android:text="@string/quick_play"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="337dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="37dp"
-        android:onClick="nowPuzzles"
-        android:text="@string/puzzles"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="337dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="37dp"
-        android:onClick="nowNews"
-        android:text="@string/news_articles"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="337dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="89dp"
-        android:text="@string/blogs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button25"
@@ -111,24 +57,57 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="137dp"
         android:layout_marginEnd="137dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/any_suggestions"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/fonts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="16dp"
-        android:text="Fonts"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:gravity="center"
+            android:text="GeeksforGeeks"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- this the navigation view which draws and shows the navigation drawer -->
+    <!-- include the menu created in the menu folder -->
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"
+        tools:ignore="MissingConstraints" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
