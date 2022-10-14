@@ -11,23 +11,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dhuro"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
             android:name=".Puzzles"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".QuickPlay"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".Blogs"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".News"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable"/>
         <activity
             android:name=".Home"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".Login"
             android:exported="false" />
