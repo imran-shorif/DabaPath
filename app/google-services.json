@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511267075442",
+    "project_id": "dabapath-62770",
+    "storage_bucket": "dabapath-62770.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511267075442:android:143dfec9a582abecd119eb",
+        "android_client_info": {
+          "package_name": "com.example.dhuro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511267075442-rv042mmgdbe2cotf3jr0b8i87gi1g8t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf_8hMkYlmpn2gOmizvsI-taKIfqWNSQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511267075442-rv042mmgdbe2cotf3jr0b8i87gi1g8t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
