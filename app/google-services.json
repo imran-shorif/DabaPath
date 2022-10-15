@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "511267075442",
-    "project_id": "dabapath-62770",
-    "storage_bucket": "dabapath-62770.appspot.com"
+    "project_number": "289611128777",
+    "project_id": "dabapath-1af0a",
+    "storage_bucket": "dabapath-1af0a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511267075442:android:143dfec9a582abecd119eb",
+        "mobilesdk_app_id": "1:289611128777:android:a5e82860aa9faa4c27d218",
         "android_client_info": {
           "package_name": "com.example.dhuro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "511267075442-rv042mmgdbe2cotf3jr0b8i87gi1g8t6.apps.googleusercontent.com",
+          "client_id": "289611128777-e9teoia7q3s0o11g6731par2hk5rt16h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDf_8hMkYlmpn2gOmizvsI-taKIfqWNSQk"
+          "current_key": "AIzaSyAQq9cSupqjtC8PUMW1uP0PJRxwrwYJGMw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "511267075442-rv042mmgdbe2cotf3jr0b8i87gi1g8t6.apps.googleusercontent.com",
+              "client_id": "289611128777-e9teoia7q3s0o11g6731par2hk5rt16h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

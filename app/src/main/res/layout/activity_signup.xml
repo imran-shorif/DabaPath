@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/entryMail"
+        android:id="@+id/enterMail"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
@@ -34,6 +34,7 @@
         android:ems="10"
         android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
         android:textColorHint="#919191"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/entryName" />
 
     <EditText
-        android:id="@+id/entryPassword"
+        android:id="@+id/enterPassword"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
@@ -84,11 +85,11 @@
         android:ems="10"
         android:hint="@string/enter_your_password"
         android:inputType="textPassword"
-        android:textColor="#574E4E"
+        android:textColor="#FFFFFF"
         android:textColorHint="#919191"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entryMail" />
+        app:layout_constraintTop_toBottomOf="@+id/enterMail" />
 
     <EditText
         android:id="@+id/entryCPassword"
@@ -100,18 +101,18 @@
         android:ems="10"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
+        android:textColor="#FFFFFF"
         android:textColorHint="#919191"
-        android:textColorLink="#919191"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entryPassword"
+        app:layout_constraintTop_toBottomOf="@+id/enterPassword"
         android:autofillHints="" />
 
     <TextView
         android:id="@+id/signupbottomtext"
         android:layout_width="172dp"
         android:layout_height="19dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="70dp"
         android:text="@string/already_have_an_account"
@@ -125,7 +126,7 @@
         android:layout_width="79dp"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="91dp"
+        android:layout_marginEnd="70dp"
         android:text="@string/log_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/signupbottomtext"
