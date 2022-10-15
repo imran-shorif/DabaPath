@@ -7,32 +7,19 @@
     tools:context=".Blogs"
     android:background="#1c1c1d">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="156dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="46dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
     <Button
         android:id="@+id/button9"
         android:layout_width="337dp"
         android:layout_height="227dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="37dp"
         android:text="The Day I met Magnus Carlsen"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button10"

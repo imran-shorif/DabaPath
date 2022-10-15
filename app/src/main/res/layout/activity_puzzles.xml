@@ -13,14 +13,14 @@
         android:layout_width="337dp"
         android:layout_height="88dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="217dp"
         android:layout_marginEnd="37dp"
         android:text="@string/puzzle_of_the_day"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button20"
@@ -86,19 +86,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button16" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="156dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="46dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
