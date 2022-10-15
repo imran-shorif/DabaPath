@@ -89,6 +89,7 @@ public class Signup extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(Signup.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Signup.this, Login.class));
                     }
                     else{
                         Toast.makeText(Signup.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

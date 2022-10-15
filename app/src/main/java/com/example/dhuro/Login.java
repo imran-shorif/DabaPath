@@ -63,6 +63,7 @@ public class Login extends Signup {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(Login.this, "User Logged In Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Login.this, Home.class));
                     }
                     else{
                         Toast.makeText(Login.this, "Logging In Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
