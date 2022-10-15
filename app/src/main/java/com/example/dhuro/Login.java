@@ -12,10 +12,10 @@ public class Login extends Signup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button button = findViewById(R.id.button5);
+        Button button = findViewById(R.id.btnToLogin);
         button.setOnClickListener(view -> nowSignUp((View) view));
 
-        Button buttonL = findViewById(R.id.button6);
+        Button buttonL = findViewById(R.id.btnSignup);
         buttonL.setOnClickListener(view -> nowHome((View) view));
     }
 
