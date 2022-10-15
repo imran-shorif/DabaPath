@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.annotation.Nullable;
 
-public class Login extends MainActivity {
+public class Login extends Signup {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class Login extends MainActivity {
     }
 
     public void nowSignUp(View view) {
-        Intent SignUp = new Intent(Login.this, MainActivity.class);
+        Intent SignUp = new Intent(Login.this, Signup.class);
         startActivity(SignUp);
     }
 }

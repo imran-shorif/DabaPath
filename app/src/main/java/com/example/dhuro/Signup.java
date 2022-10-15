@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class Signup extends AppCompatActivity {
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         Button button = findViewById(R.id.button5);
         button.setOnClickListener(view -> nowLogin((View) view));
@@ -29,20 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            currentUser.reload();
-        }
-    }
-
-
 
 
     public void nowLogin(View view) {
-        Intent Login = new Intent(MainActivity.this, Login.class);
+        Intent Login = new Intent(Signup.this, Login.class);
         startActivity(Login);
     }
 }
