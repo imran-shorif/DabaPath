@@ -3,13 +3,9 @@ package com.example.dhuro;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -17,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -48,9 +43,6 @@ public class Home extends AppCompatActivity {
 
         loadFragment(new QuickPlay());
 
-
-
-
     }
 
     private void initInstances(){
@@ -64,27 +56,34 @@ public class Home extends AppCompatActivity {
 
         navigation = findViewById(R.id.sidenav);
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                int id = menuItem.getItemId();
-                switch (id) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment = null;
+                switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-                        startActivity(new Intent());
+                        startActivity(new Intent(getApplicationContext(), Home.class));
                         break;
                     case R.id.nav_profile:
-                        startActivity(new Intent(Home.this, Profile.class));
+                        fragment = new Profile();
                         break;
                     case R.id.nav_settings:
-                        startActivity(new Intent(Home.this, Settings.class));
+                        fragment = new Settings();
                         break;
                     case R.id.nav_about:
-                        startActivity(new Intent(Home.this, About.class));
+                        fragment = new About();
                         break;
                     case R.id.nav_logout:
-//                        startActivity(new Intent(Home.this, Signup.class));
+                        FirebaseAuth.getInstance().signOut();
                         break;
                 }
-                return false;
+                if (fragment != null) {
+                    loadFragment(fragment);
+                }
+                return true;
+            }
+            void loadFragment(Fragment fragment) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
             }
         });
     }
@@ -95,27 +94,26 @@ public class Home extends AppCompatActivity {
         drawerToggle.syncState();
     }
 
+
+
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
 
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -145,6 +143,9 @@ public class Home extends AppCompatActivity {
                 break;
             case R.id.blogs:
                 fragment = new Blogs();
+                break;
+            case R.id.nav_about:
+                fragment = new About();
                 break;
         }
         if (fragment != null) {
