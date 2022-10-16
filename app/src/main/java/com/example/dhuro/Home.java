@@ -2,9 +2,11 @@ package com.example.dhuro;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,9 +23,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class Home extends AppCompatActivity {
 
-    public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     BottomNavigationView bottomNavigationView;
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle drawerToggle;
+    NavigationView navigation;
 
     FirebaseAuth mAuth;
 
@@ -32,37 +38,86 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        initInstances();
+
         mAuth = FirebaseAuth.getInstance();
 
         bottomNavigationView = findViewById(R.id.bottomnav);
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelected);
 
+
         loadFragment(new QuickPlay());
 
-        drawerLayout = findViewById(R.id.my_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+    }
+
+    private void initInstances(){
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button btnEmailIntent = findViewById(R.id.button25);
-        btnEmailIntent.setOnClickListener(view -> {
-            Intent Email = new Intent(Intent.ACTION_SEND);
-            Email.setData(Uri.parse("mailto:"));
-            Email.putExtra(Intent.EXTRA_EMAIL, new String[]{"dabapath@gmail.com"});
-            Email.putExtra(Intent.EXTRA_SUBJECT, "Suggestion");
-            Email.setType("plain/text");
-            Email.putExtra(Intent.EXTRA_TEXT, "I love DabaPath, moreover I'd like to suggest that: ");
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
 
-            if (Email.resolveActivity(getPackageManager()) != null) {
-                startActivity(Email);
-            } else {
-                Toast.makeText(Home.this, "Redirect Error", Toast.LENGTH_SHORT).show();
+        navigation = findViewById(R.id.sidenav);
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                switch (id) {
+                    case R.id.nav_home:
+                        startActivity(new Intent());
+                        break;
+                    case R.id.nav_profile:
+                        startActivity(new Intent(Home.this, Profile.class));
+                        break;
+                    case R.id.nav_settings:
+                        startActivity(new Intent(Home.this, Settings.class));
+                        break;
+                    case R.id.nav_about:
+                        startActivity(new Intent(Home.this, About.class));
+                        break;
+                    case R.id.nav_logout:
+//                        startActivity(new Intent(Home.this, Signup.class));
+                        break;
+                }
+                return false;
             }
         });
+    }
 
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.navigation_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item))
+            return true;
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -72,15 +127,6 @@ public class Home extends AppCompatActivity {
         if (user == null){
             startActivity(new Intent(Home.this, Login.class));
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 

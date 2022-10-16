@@ -13,40 +13,29 @@
         android:layout_width="337dp"
         android:layout_height="150dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="124dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="42dp"
         android:text="Play with a BOT"
         android:textAllCaps="false"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button15"
         android:layout_width="337dp"
         android:layout_height="150dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="316dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="169dp"
         android:text="Play Over the board Chess"
         android:textAllCaps="false"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="156dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="46dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About"
+    android:background="#1c1c1d">
+
+    <TextView
+        android:id="@+id/aboutTitle"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="26dp"
+        android:text="'দাবাপাঠ - DabaPath' বাংলাভাষায় বাংলাদেশের দাবা নিয়ে কাজ করতে প্রতিশ্রুতিবদ্ধ।"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aboutText"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="26dp"
+        android:text="বাংলাভাষায় দাবা নিয়ে মানসম্মত লেখালেখি, দেশীয় ও বিদেশী টুর্নামেন্টের খবরাখবর এবং প্রকাশনা বিষয়ক প্রতিষ্ঠান দাবাপাঠ।
+
+আমাদের লক্ষ্য ও উদ্দেশ্য:\n
+\n
+১. বাংলায় দাবা নিয়ে মানসম্মত কন্টেন্টের চাহিদা পূরণ করা\n
+২. বাংলাভাষায় দাবা নিয়ে বইপত্রের সংকট মেটানো\n
+৩. দেশীয় টুর্নামেন্ট নিয়ে তাৎক্ষণিক সংবাদ প্রকাশ করা\n
+৪. বহির্বিশ্বের দাবাজগতের সাথে বাংলাভাষায় বাংলাভাষীদের যোগাযোগ ঘটানো\n
+৫. বাংলাদেশে দাবা-সংস্কৃতি গড়ে তোলা এবং বিকাশে ভূমিকা রাখা \n
+৬. নতুনপ্রজন্মকে দাবামুখী করা \n
+৭. সব ধরনের মানুষকে দাবায় আগ্রহী করে তোলা\n
+৮. বাংলাভাষায় দাবার ওয়ান-স্টপ সল্যুশন হয়ে ওঠা\n
+\n
+দাবার এই আন্দোলনে আপনাদেরও পাশে চাই!
+"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
