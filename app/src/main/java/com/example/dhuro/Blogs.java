@@ -71,7 +71,7 @@ public class Blogs extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+            startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
     @Override
