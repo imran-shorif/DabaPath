@@ -6,20 +6,22 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.drawerlayout.widget.DrawerLayout;
+
+import java.util.Objects;
 
 public class Home extends AppCompatActivity {
 
-    public ActionBarDrawerToggle actionBarDrawerToggle;
-    BottomNavigationView bottomNavigationView;
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
@@ -27,7 +29,7 @@ public class Home extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
-    @SuppressLint({"QueryPermissionsNeeded", "IntentReset"})
+    @SuppressLint({"QueryPermissionsNeeded", "IntentReset", "NonConstantResourceId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +39,41 @@ public class Home extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setOnItemSelectedListener(this::onItemSelected);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
-        loadFragment(new QuickPlay());
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                return true;
+                case R.id.quickPlay:
+                    startActivity(new Intent(getApplicationContext(), QuickPlay.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.puzzles:
+                    startActivity(new Intent(getApplicationContext(), Puzzles.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.news:
+                    startActivity(new Intent(getApplicationContext(), News.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.blogs:
+                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+            }
+            return true;
+
+        });
+
 
     }
 
-    private void initInstances(){
-        getSupportActionBar().setHomeButtonEnabled(true);
+    private void initInstances() {
+        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -82,6 +109,7 @@ public class Home extends AppCompatActivity {
                 }
                 return true;
             }
+
             void loadFragment(Fragment fragment) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
             }
@@ -93,7 +121,6 @@ public class Home extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
-
 
 
     @Override
@@ -119,41 +146,14 @@ public class Home extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null){
+        if (user == null) {
             startActivity(new Intent(Home.this, Login.class));
         }
     }
 
 
-    @SuppressLint("NonConstantResourceId")
-    public boolean onItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-        switch (item.getItemId()) {
-            case R.id.quickPlay:
-                fragment = new QuickPlay();
-                break;
-            case R.id.puzzles:
-                fragment = new Puzzles();
-                break;
-            case R.id.news:
-                fragment = new News();
-                break;
-            case R.id.blogs:
-                fragment = new Blogs();
-                break;
-            case R.id.nav_about:
-                fragment = new About();
-                break;
-        }
-        if (fragment != null) {
-            loadFragment(fragment);
-        }
-        return true;
-    }
-    void loadFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
-    }
+
 }

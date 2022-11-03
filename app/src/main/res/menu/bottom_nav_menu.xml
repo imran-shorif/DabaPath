@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="HardcodedText">
     <item
         android:id="@+id/quickPlay"
         android:title="Quick Play"
-        android:icon="@drawable/quickplayicon"/>
+        android:icon="@drawable/quickplayicon"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/puzzles"
         android:title="Puzzles"
         android:icon="@drawable/puzzlesicon"/>
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/homeicon"/>
     <item
         android:id="@+id/news"
         android:title="News"
