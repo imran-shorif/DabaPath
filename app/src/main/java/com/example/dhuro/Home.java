@@ -41,11 +41,9 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelected);
 
 
-        loadFragment(new QuickPlay());
-
     }
 
-    private void initInstances(){
+    private void initInstances() {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -82,6 +80,7 @@ public class Home extends AppCompatActivity {
                 }
                 return true;
             }
+
             void loadFragment(Fragment fragment) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
             }
@@ -93,7 +92,6 @@ public class Home extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
-
 
 
     @Override
@@ -119,10 +117,10 @@ public class Home extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null){
+        if (user == null) {
             startActivity(new Intent(Home.this, Login.class));
         }
     }
@@ -130,30 +128,26 @@ public class Home extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     public boolean onItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-        switch (item.getItemId()) {
-            case R.id.quickPlay:
-                fragment = new QuickPlay();
-                break;
-            case R.id.puzzles:
-                fragment = new Puzzles();
-                break;
-            case R.id.news:
-                fragment = new News();
-                break;
-            case R.id.blogs:
-                fragment = new Blogs();
-                break;
-            case R.id.nav_about:
-                fragment = new About();
-                break;
-        }
-        if (fragment != null) {
-            loadFragment(fragment);
-        }
-        return true;
+     switch(item.getItemId())
+
+    {
+        case R.id.quickPlay:
+            startActivity(new Intent(getApplicationContext(), QuickPlay.class));
+            overridePendingTransition(0, 0);
+            return true;
+        case R.id.puzzles:
+            startActivity(new Intent(getApplicationContext(), Puzzles.class));
+            overridePendingTransition(0, 0);
+            return true;
+        case R.id.news:
+            startActivity(new Intent(getApplicationContext(), News.class));
+            overridePendingTransition(0, 0);
+            return true;
+        case R.id.blogs:
+            startActivity(new Intent(getApplicationContext(), Blogs.class));
+            overridePendingTransition(0, 0);
+            return true;
     }
-    void loadFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
+                return false;
     }
 }
