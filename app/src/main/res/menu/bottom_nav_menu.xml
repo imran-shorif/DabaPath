@@ -14,7 +14,7 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/puzzlesicon"/>
+        android:icon="@drawable/homeicon"/>
     <item
         android:id="@+id/news"
         android:title="News"
