@@ -1,5 +1,6 @@
 package com.example.dhuro;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 public class Blogs extends AppCompatActivity {
@@ -26,10 +28,41 @@ public class Blogs extends AppCompatActivity {
 
     private Uri mImageUri;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blogs);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.blogs);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext(), Home.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.quickPlay:
+                    startActivity(new Intent(getApplicationContext(), QuickPlay.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.puzzles:
+                    startActivity(new Intent(getApplicationContext(), Puzzles.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.news:
+                    startActivity(new Intent(getApplicationContext(), News.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.blogs:
+                    return true;
+            }
+            return true;
+
+        });
 
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);

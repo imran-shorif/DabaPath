@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
-    @SuppressLint({"QueryPermissionsNeeded", "IntentReset"})
+    @SuppressLint({"QueryPermissionsNeeded", "IntentReset", "NonConstantResourceId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +37,35 @@ public class Home extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setOnItemSelectedListener(this::onItemSelected);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                return true;
+                case R.id.quickPlay:
+                    startActivity(new Intent(getApplicationContext(), QuickPlay.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.puzzles:
+                    startActivity(new Intent(getApplicationContext(), Puzzles.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.news:
+                    startActivity(new Intent(getApplicationContext(), News.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.blogs:
+                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+            }
+            return true;
+
+        });
 
 
     }
@@ -126,28 +153,5 @@ public class Home extends AppCompatActivity {
     }
 
 
-    @SuppressLint("NonConstantResourceId")
-    public boolean onItemSelected(@NonNull MenuItem item) {
-     switch(item.getItemId())
 
-    {
-        case R.id.quickPlay:
-            startActivity(new Intent(getApplicationContext(), QuickPlay.class));
-            overridePendingTransition(0, 0);
-            return true;
-        case R.id.puzzles:
-            startActivity(new Intent(getApplicationContext(), Puzzles.class));
-            overridePendingTransition(0, 0);
-            return true;
-        case R.id.news:
-            startActivity(new Intent(getApplicationContext(), News.class));
-            overridePendingTransition(0, 0);
-            return true;
-        case R.id.blogs:
-            startActivity(new Intent(getApplicationContext(), Blogs.class));
-            overridePendingTransition(0, 0);
-            return true;
-    }
-                return false;
-    }
 }

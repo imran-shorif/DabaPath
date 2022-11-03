@@ -9,6 +9,10 @@
         android:title="Puzzles"
         android:icon="@drawable/puzzlesicon"/>
     <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/puzzlesicon"/>
+    <item
         android:id="@+id/news"
         android:title="News"
         android:icon="@drawable/newsicon"/>
