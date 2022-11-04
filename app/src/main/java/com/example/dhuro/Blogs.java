@@ -1,5 +1,6 @@
 package com.example.dhuro;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -39,10 +41,40 @@ public class Blogs extends AppCompatActivity {
 
     private StorageTask mUploadTask;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blogs);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.news);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+                    switch (item.getItemId()) {
+                        case R.id.home:
+                            startActivity(new Intent(getApplicationContext(), Home.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.quickPlay:
+                            startActivity(new Intent(getApplicationContext(), QuickPlay.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.puzzles:
+                            startActivity(new Intent(getApplicationContext(), Puzzles.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.news:
+                            startActivity(new Intent(getApplicationContext(), News.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.blogs:
+                            return true;
+                    }
+                    return true;
+                });
 
         Button mButtonChooseImage = findViewById(R.id.button_choose_image);
         Button mButtonUpload = findViewById(R.id.button_upload);
