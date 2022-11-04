@@ -6,18 +6,14 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Objects;
 
 public class Home extends AppCompatActivity {
@@ -72,6 +68,7 @@ public class Home extends AppCompatActivity {
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void initInstances() {
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -82,37 +79,28 @@ public class Home extends AppCompatActivity {
         drawerToggle.syncState();
 
         navigation = findViewById(R.id.sidenav);
-        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment = null;
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Home.class));
-                        break;
-                    case R.id.nav_profile:
-                        fragment = new Profile();
-                        break;
-                    case R.id.nav_settings:
-                        fragment = new Settings();
-                        break;
-                    case R.id.nav_about:
-                        fragment = new About();
-                        break;
-                    case R.id.nav_logout:
-                        FirebaseAuth.getInstance().signOut();
-                        break;
-                }
-                if (fragment != null) {
-                    loadFragment(fragment);
-                }
-                return true;
+        navigation.setNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.nav_home:
+                    return true;
+                case R.id.nav_profile:
+                    startActivity(new Intent(getApplicationContext(), Profile.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.nav_settings:
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.nav_about:
+                    startActivity(new Intent(getApplicationContext(), About.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.nav_logout:
+                    startActivity(new Intent(getApplicationContext(), News.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
-
-            void loadFragment(Fragment fragment) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
-            }
+            return true;
         });
     }
 
