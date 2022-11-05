@@ -19,73 +19,63 @@
 
 
     <Button
-        android:id="@+id/button10"
-        android:layout_width="337dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="37dp"
-        android:text="Alireza Firouzja becomes youngest 2800 in the histoy of chess!"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
-
-    <Button
         android:id="@+id/button9"
         android:layout_width="337dp"
         android:layout_height="227dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="60dp"
         android:text="Magnus Carlsen won't defend World Championship Title again!"
         android:textAllCaps="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/button10"
         android:layout_width="337dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="37dp"
-        android:text="Gukesh is on 8/8 in this Olympiad!"
+        android:layout_height="88dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        android:text="Alireza Firouzja becomes youngest 2800 in the histoy of chess!"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <Button
         android:id="@+id/button13"
         android:layout_width="337dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="37dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
         android:text="Niaz Murshed is the 1st GM of Bangladesh!"
         android:textAllCaps="false"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button12" />
 
     <Button
         android:id="@+id/button14"
         android:layout_width="337dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="37dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="37dp"
         android:text="DabaPath is formed to circulate chess in Bnagladesh!"
         android:textAllCaps="false"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button13" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="337dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:text="Gukesh is on 8/8 in this Olympiad!"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button10" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
