@@ -19,7 +19,7 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        btnEmailIntent = btnEmailIntent.findViewById(R.id.button25);
+        btnEmailIntent = findViewById(R.id.emailBtn);
         btnEmailIntent.setOnClickListener(view -> {
             Intent Email = new Intent(Intent.ACTION_SEND);
             Email.setData(Uri.parse("mailto:"));

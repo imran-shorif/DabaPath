@@ -21,19 +21,19 @@
 
     <EditText
         android:id="@+id/edit_text_file_name"
-        android:layout_width="382dp"
-        android:layout_height="364dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="388dp"
+        android:layout_height="361dp"
         android:autofillHints=""
         android:hint="Insert blog contents here"
         android:inputType="text"
         android:shadowColor="#FFFFFF"
+        android:textAlignment="viewStart"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

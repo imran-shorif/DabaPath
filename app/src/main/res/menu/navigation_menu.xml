@@ -4,9 +4,6 @@
     tools:ignore="HardcodedText"
     android:background="#1c1c1d">
 
-    <item
-        android:id="@+id/nav_home"
-        android:title="Home" />
 
     <item
         android:id="@+id/nav_profile"

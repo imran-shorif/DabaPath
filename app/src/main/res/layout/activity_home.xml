@@ -7,14 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Signup"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    android:background="#1c1c1d">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/sidenav"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/navigation_menu" />
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -22,7 +17,6 @@
     tools:context=".Home"
     android:background="#1c1c1d"
     tools:ignore="HardcodedText">
-
 
     <FrameLayout
         android:id="@+id/flFragment"
