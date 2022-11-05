@@ -152,6 +152,8 @@ public class Blogs extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             case R.id.nav_settings:
+                startActivity(new Intent(getApplicationContext(), Settings.class));
+                overridePendingTransition(0, 0);
                 return true;
             case R.id.nav_about:
                 startActivity(new Intent(getApplicationContext(), About.class));
