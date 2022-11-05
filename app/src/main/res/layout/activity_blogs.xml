@@ -9,15 +9,15 @@
     tools:context=".Settings"
     tools:ignore="HardcodedText"
     android:background="#1c1c1d">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_toEndOf="@+id/bottom_navigation"
-    android:background="#1c1c1d"
-    tools:context=".Blogs"
-    tools:ignore="HardcodedText">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/bottom_navigation"
+        android:background="#1c1c1d"
+        tools:context=".Blogs"
+        tools:ignore="HardcodedText">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout="@menu/bottom_nav_menu"
             android:layout_width="match_parent"
@@ -30,104 +30,131 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_nav_menu" />
 
-    <TextView
-        android:id="@+id/TitleBlogs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
-        android:text="Write a Blog"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/TitleBlogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="16dp"
+            android:text="Write a Blog"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="162dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="44dp"
-        android:contentDescription="Blog Image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleBlogs" />
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="162dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="44dp"
+            android:contentDescription="Blog Image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleBlogs" />
 
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="117dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="16dp"
-        android:text="Choose file"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <Button
+            android:id="@+id/button_choose_image"
+            android:layout_width="117dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="16dp"
+            android:text="Choose file"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <EditText
-        android:id="@+id/edit_text_file_name"
-        android:layout_width="388dp"
-        android:layout_height="361dp"
-        android:layout_marginBottom="4dp"
-        android:autofillHints=""
-        android:hint="Insert blog contents here"
-        android:inputType="text"
-        android:shadowColor="#FFFFFF"
-        android:textAlignment="viewStart"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/edit_text_file_name"
+            android:layout_width="367dp"
+            android:layout_height="380dp"
+            android:layout_marginBottom="4dp"
+            android:autofillHints=""
+            android:inputType="textMultiLine"
+            android:shadowColor="#FFFFFF"
+            android:hint="Insert blog contents here"
+            android:gravity="start|top"
+            android:textAlignment="viewStart"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Insert blog contents here" />
 
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginBottom="16dp"
-        android:text="Upload"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginBottom="16dp"
+            android:text="Upload"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/text_view_show_uploads"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="28dp"
-        android:gravity="center"
-        android:text="Show All Blogs"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toEndOf="@+id/button_upload" />
+        <TextView
+            android:id="@+id/text_view_show_uploads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:text="Show All Blogs"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintStart_toEndOf="@+id/button_upload" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_upload"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_upload"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="116dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
-        android:text="Upload an image for your blog *"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleBlogs" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="116dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="24dp"
+            android:text="Upload an image for your blog *"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TitleBlogs" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextTextMultiLine"-->
+<!--            android:layout_width="373dp"-->
+<!--            android:layout_height="382dp"-->
+<!--            android:layout_marginStart="18dp"-->
+<!--            android:layout_marginTop="21dp"-->
+<!--            android:ems="10"-->
+<!--            android:gravity="start|top"-->
+<!--            android:hint="Insert blog content here"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textColorHint="#FFFFFF"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/button_choose_image" />-->
+
+        <!--        <TextView-->
+<!--            android:id="@+id/edit_text_file_name"-->
+<!--            android:layout_width="386dp"-->
+<!--            android:layout_height="361dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:text="TextView"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/button_choose_image" />-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

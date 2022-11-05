@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,6 +20,7 @@ public class Profile extends AppCompatActivity {
 //    private TextView nameTextView, usernameTextView, emailTextView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
+    TextView nameTextView, usernameTextView,emailTextView;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -26,22 +28,24 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+
 //        FirebaseFirestore fstore = FirebaseFirestore.getInstance();
 //        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 //
-//        nameTextView = findViewById(R.id.user_name);
-//        usernameTextView = findViewById(R.id.user_username);
-//        emailTextView = findViewById(R.id.user_email);
+        nameTextView = findViewById(R.id.user_name);
+        usernameTextView = findViewById(R.id.user_username);
+        emailTextView = findViewById(R.id.user_email);
 //
 //        String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-//
+////
 //        DocumentReference documentReference = fstore.collection("users").document(userID);
-//
+////
 //        documentReference.addSnapshotListener((Executor) this, (documentSnapshot, error) -> {
 //            assert documentSnapshot != null;
-//            nameTextView.setText(documentSnapshot.getString("identifier"));
-////            usernameTextView.setText(documentSnapshot.getString("username"));
-////            emailTextView.setText(documentSnapshot.getString("email"));
+//            nameTextView.setText(documentSnapshot.getString("name"));
+//            usernameTextView.setText(documentSnapshot.getString("userName"));
+//            emailTextView.setText(documentSnapshot.getString("email"));
 //        });
 
         initInstances();
@@ -66,11 +70,11 @@ public class Profile extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.news:
-                    startActivity(new Intent(getApplicationContext(), News.class));
+                    startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.blogs:
-                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
             }
