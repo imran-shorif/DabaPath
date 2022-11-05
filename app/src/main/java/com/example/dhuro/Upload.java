@@ -17,8 +17,8 @@ public class Upload {
             name = "No Name";
         }
 
-        mName = name;
-        mImageUrl = imageUrl;
+        this.mName = name;
+        this.mImageUrl = imageUrl;
     }
 
     public String getName() {
@@ -26,11 +26,11 @@ public class Upload {
     }
 
     public void setName(String name) {
-        mName = name;
+        this.mName = name;
     }
 
     public void setImageUrl(String imageUrl) {
-        mImageUrl = imageUrl;
+        this.mImageUrl = imageUrl;
     }
 
     public String getImageUrl() {
@@ -44,6 +44,6 @@ public class Upload {
 
     @Exclude
     public void setKey(String key) {
-        mKey = key;
+        this.mKey = key;
     }
 }

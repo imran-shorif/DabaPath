@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -40,9 +40,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         Upload uploadCurrent = mUploads.get(position);
         holder.textViewName.setText(uploadCurrent.getName());
 
-        Picasso.get()
+        Glide.with(mContext)
                 .load(uploadCurrent.getImageUrl())
-                .fit()
+                .fitCenter()
                 .centerCrop()
                 .into(holder.imageView);
     }
