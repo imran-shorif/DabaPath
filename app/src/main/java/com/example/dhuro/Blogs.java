@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -30,9 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
-import java.util.Objects;
-
+@SuppressWarnings("ALL")
 public class Blogs extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -107,6 +108,11 @@ public class Blogs extends AppCompatActivity {
         });
 
         mTextViewShowUploads.setOnClickListener(v -> openImagesActivity());
+    }
+
+    private void openImagesActivity() {
+        Intent intent = new Intent(Blogs.this, ImagesActivity.class);
+        startActivity(intent);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -192,30 +198,32 @@ public class Blogs extends AppCompatActivity {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
 
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        Handler handler = new Handler();
+            fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Handler handler = new Handler();
                         handler.postDelayed(() -> mProgressBar.setProgress(0), 500);
 
                         Toast.makeText(Blogs.this, "Upload successful", Toast.LENGTH_LONG).show();
-                        Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl().toString());
+
+                    fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Uri downloadUrl = uri;
+                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString());
                         String uploadId = mDatabaseRef.push().getKey();
                         assert uploadId != null;
                         mDatabaseRef.child(uploadId).setValue(upload);
-                    })
-                    .addOnFailureListener(e -> Toast.makeText(Blogs.this, e.getMessage(), Toast.LENGTH_SHORT).show())
+                        }
+                    });
+                }
+            }).addOnFailureListener(e -> Toast.makeText(Blogs.this, e.getMessage(), Toast.LENGTH_SHORT).show())
                     .addOnProgressListener(taskSnapshot -> {
                         double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                         mProgressBar.setProgress((int) progress);
                     });
         } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void openImagesActivity() {
-        Intent intent = new Intent(this, ImagesActivity.class);
-        startActivity(intent);
-    }
-}
+        };}}
