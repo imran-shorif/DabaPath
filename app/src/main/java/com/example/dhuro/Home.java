@@ -55,7 +55,7 @@ public class Home extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.blogs:
-                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
             }

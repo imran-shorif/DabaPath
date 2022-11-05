@@ -23,8 +23,4 @@
         android:id="@+id/blogs"
         android:title="Blogs"
         android:icon="@drawable/blogsicon"/>
-<!--    <item-->
-<!--        android:id="@+id/profile"-->
-<!--        android:title="Profile"-->
-<!--        android:icon="@drawable/profileicon"/>-->
 </menu>
