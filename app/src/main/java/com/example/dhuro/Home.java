@@ -6,22 +6,21 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import java.util.Objects;
 
 public class Home extends AppCompatActivity {
 
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-    NavigationView navigation;
 
     FirebaseAuth mAuth;
 
@@ -57,7 +56,7 @@ public class Home extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.blogs:
-                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
             }
@@ -65,43 +64,23 @@ public class Home extends AppCompatActivity {
 
         });
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            startActivity(new Intent(getApplicationContext(), Login.class));
+        }
     }
 
     @SuppressLint("NonConstantResourceId")
     private void initInstances() {
-        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         drawerLayout = findViewById(R.id.my_drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
-
-        navigation = findViewById(R.id.sidenav);
-        navigation.setNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()) {
-                case R.id.nav_home:
-                    return true;
-                case R.id.nav_profile:
-                    startActivity(new Intent(getApplicationContext(), Profile.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.nav_settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.nav_about:
-                    startActivity(new Intent(getApplicationContext(), About.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.nav_logout:
-                    startActivity(new Intent(getApplicationContext(), News.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-            }
-            return true;
-        });
     }
 
     @Override
@@ -124,24 +103,26 @@ public class Home extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item))
-            return true;
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null) {
-            startActivity(new Intent(Home.this, Login.class));
+        switch (item.getItemId()) {
+            case R.id.nav_profile:
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+                overridePendingTransition(0, 0);
+                return true;
+            case R.id.nav_settings:
+                startActivity(new Intent(getApplicationContext(), Settings.class));
+                overridePendingTransition(0, 0);
+                return true;
+            case R.id.nav_about:
+                startActivity(new Intent(getApplicationContext(), About.class));
+                overridePendingTransition(0, 0);
+                return true;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
         }
+        return true;
     }
-
-
-
 }
