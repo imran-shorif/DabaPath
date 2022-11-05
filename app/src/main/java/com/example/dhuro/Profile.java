@@ -15,11 +15,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Objects;
-import java.util.concurrent.Executor;
 
 public class Profile extends AppCompatActivity {
 //    private TextView nameTextView, usernameTextView, emailTextView;
@@ -35,23 +30,23 @@ public class Profile extends AppCompatActivity {
 
 
 
-        FirebaseFirestore fstore = FirebaseFirestore.getInstance();
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+//        FirebaseFirestore fstore = FirebaseFirestore.getInstance();
+//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 //
         nameTextView = findViewById(R.id.user_name);
         usernameTextView = findViewById(R.id.user_username);
         emailTextView = findViewById(R.id.user_email);
 //
-        String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-//
-        DocumentReference documentReference = fstore.collection("users").document(userID);
-//
-        documentReference.addSnapshotListener((Executor) this, (documentSnapshot, error) -> {
-            assert documentSnapshot != null;
-            nameTextView.setText(documentSnapshot.getString("name"));
-            usernameTextView.setText(documentSnapshot.getString("userName"));
-            emailTextView.setText(documentSnapshot.getString("email"));
-        });
+//        String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+////
+//        DocumentReference documentReference = fstore.collection("users").document(userID);
+////
+//        documentReference.addSnapshotListener((Executor) this, (documentSnapshot, error) -> {
+//            assert documentSnapshot != null;
+//            nameTextView.setText(documentSnapshot.getString("name"));
+//            usernameTextView.setText(documentSnapshot.getString("userName"));
+//            emailTextView.setText(documentSnapshot.getString("email"));
+//        });
 
         initInstances();
 

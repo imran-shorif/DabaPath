@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -62,7 +63,18 @@ public class Home extends AppCompatActivity {
             }
             return true;
 
+
+
         });
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnchess = findViewById(R.id.buttonchess);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnsolve = findViewById(R.id.buttonsolve);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnnews = findViewById(R.id.buttonnews);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnblogs = findViewById(R.id.buttonblogs);
+
+        btnchess.setOnClickListener(v -> startActivity(new Intent(Home.this, ChessActivity.class)));
+        btnsolve.setOnClickListener(v -> startActivity(new Intent(Home.this, Puzzles.class)));
+        btnnews.setOnClickListener(v -> startActivity(new Intent(Home.this, NewsActivity.class)));
+        btnblogs.setOnClickListener(v -> startActivity(new Intent(Home.this, ImagesActivity.class)));
 
     }
 

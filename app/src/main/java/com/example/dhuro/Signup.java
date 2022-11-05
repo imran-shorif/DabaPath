@@ -11,8 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Signup extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -44,9 +47,7 @@ public class Signup extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        btnSignup.setOnClickListener(view -> {
-            createUser();
-        });
+        btnSignup.setOnClickListener(view -> createUser());
 
         btnToLogin.setOnClickListener(view ->
                 startActivity(new Intent(Signup.this, Login.class))
@@ -86,24 +87,34 @@ public class Signup extends AppCompatActivity {
         }
         else {
             mAuth.createUserWithEmailAndPassword(sMailText, sPasswordText).addOnCompleteListener(task -> {
-                if (task.isSuccessful()){
-                    Toast.makeText(Signup.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                if (task.isSuccessful()) {
+                    String mUserId = mAuth.getUid();
+                    Toast.makeText(Signup.this, "User Registered Successfully for ID - \n" + mUserId, Toast.LENGTH_SHORT).show();
 
-                    userID = mAuth.getCurrentUser().getUid();
+//                    userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+//                    mUserId = mAuth.getUid();
+//                    DocumentReference documentReference = fstore.collection("users").document(userID);
+//                    documentReference.addSnapshotListener(this, (documentSnapshot, e) -> {
+//                        assert documentSnapshot != null;
+//                        sMail.setText(documentSnapshot.getString("email"));
+//                        sName.setText(documentSnapshot.getString("name"));
+//                        sUsername.setText(documentSnapshot.getString("username"));
+//                    });
 
-                    DocumentReference documentReference = fstore.collection("users").document(userID);
-                    documentReference.addSnapshotListener(this, (documentSnapshot, e) -> {
-                        sMail.setText(documentSnapshot.getString("email"));
-                        sName.setText(documentSnapshot.getString("name"));
-                        sUsername.setText(documentSnapshot.getString("username"));
-                    });
+
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("name", sName);
+                    user.put("userName", sUsername);
+                    user.put("email", sMail);
+                    assert mUserId != null;
+                    fstore.collection("users").document(mUserId).set(user);
+//                    System.out.println(userID);
 
 
-
-//                    Map<String,Object> user = new HashMap<>();
-//                    user.put("name",sName);
-//                    user.put("userName", sUsername);
-//                    user.put("email",sMail);
+//                    fstore.collection("users").document(userID)
+//                            .add(user)
+//                            .addOnSuccessListener(documentReference -> Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId()))
+//                            .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
 
 //                    documentReference.set(user).addOnSuccessListener(unused ->
 //                                    Log.d(TAG, "user profile is created for " + userID))
@@ -112,7 +123,7 @@ public class Signup extends AppCompatActivity {
                     startActivity(new Intent(Signup.this, Login.class));
                 }
                 else{
-                    Toast.makeText(Signup.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Registration Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
