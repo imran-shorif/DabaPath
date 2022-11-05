@@ -37,6 +37,10 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
+            android:name=".ChessActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".Home"
             android:exported="true">
                 <intent-filter>
