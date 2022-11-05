@@ -15,8 +15,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Objects;
-
 public class Settings extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
@@ -65,9 +63,6 @@ public class Settings extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     private void initInstances() {
-        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         drawerLayout = findViewById(R.id.my_drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
         drawerLayout.addDrawerListener(drawerToggle);

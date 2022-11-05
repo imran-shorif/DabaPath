@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings"
+    tools:ignore="HardcodedText"
+    android:background="#1c1c1d">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".About"
     android:background="#1c1c1d">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout="@menu/bottom_nav_menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/black"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 
     <Button
@@ -14,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="137dp"
         android:layout_marginEnd="137dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="68dp"
         android:text="@string/any_suggestions"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +50,7 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="26dp"
         android:text="'দাবাপাঠ - DabaPath' বাংলাভাষায় বাংলাদেশের দাবা নিয়ে কাজ করতে প্রতিশ্রুতিবদ্ধ।"
         android:textAlignment="center"
@@ -35,7 +58,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +67,7 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="208dp"
         android:layout_marginEnd="26dp"
         android:text="বাংলাভাষায় দাবা নিয়ে মানসম্মত লেখালেখি, দেশীয় ও বিদেশী টুর্নামেন্টের খবরাখবর এবং প্রকাশনা বিষয়ক প্রতিষ্ঠান দাবাপাঠ।আমাদের লক্ষ্য ও উদ্দেশ্য:\n\n১. বাংলায় দাবা নিয়ে মানসম্মত কন্টেন্টের চাহিদা পূরণ করা\n২. বাংলাভাষায় দাবা নিয়ে বইপত্রের সংকট মেটানো\n৩. দেশীয় টুর্নামেন্ট নিয়ে তাৎক্ষণিক সংবাদ প্রকাশ করা\n৪. বহির্বিশ্বের দাবাজগতের সাথে বাংলাভাষায় বাংলাভাষীদের যোগাযোগ ঘটানো\n৫. বাংলাদেশে দাবা-সংস্কৃতি গড়ে তোলা এবং বিকাশে ভূমিকা রাখা \n৬. নতুনপ্রজন্মকে দাবামুখী করা \n৭. সব ধরনের মানুষকে দাবায় আগ্রহী করে তোলা\n৮. বাংলাভাষায় দাবার ওয়ান-স্টপ সল্যুশন হয়ে ওঠা\n\nদাবার এই আন্দোলনে আপনাদেরও পাশে চাই!"
         android:textAlignment="viewStart"
@@ -52,8 +75,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
