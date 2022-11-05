@@ -51,11 +51,11 @@ public class About extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.news:
-                    startActivity(new Intent(getApplicationContext(), News.class));
+                    startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.blogs:
-                    startActivity(new Intent(getApplicationContext(), Blogs.class));
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
             }

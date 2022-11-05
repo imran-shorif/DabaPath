@@ -18,7 +18,7 @@
             android:id="@+id/text_view_name_news"
             android:layout_width="246dp"
             android:layout_height="127dp"
-            android:text="@string/blog_content"
+            android:text="@string/news_content"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"

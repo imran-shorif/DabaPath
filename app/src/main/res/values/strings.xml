@@ -35,4 +35,5 @@
     <string name="name">Name</string>
     <string name="blog_content">Blog content</string>
     <string name="add_a_blog">Add A Blog</string>
+    <string name="news_content">news_content</string>
 </resources>

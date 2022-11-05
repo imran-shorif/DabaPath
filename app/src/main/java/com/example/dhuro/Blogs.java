@@ -78,7 +78,7 @@ public class Blogs extends AppCompatActivity {
                             overridePendingTransition(0, 0);
                             return true;
                         case R.id.news:
-                            startActivity(new Intent(getApplicationContext(), News.class));
+                            startActivity(new Intent(getApplicationContext(), NewsActivity.class));
                             overridePendingTransition(0, 0);
                             return true;
                         case R.id.blogs:
@@ -90,10 +90,10 @@ public class Blogs extends AppCompatActivity {
         Button mButtonChooseImage = findViewById(R.id.button_choose_image);
         Button mButtonUpload = findViewById(R.id.button_upload);
         TextView mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextFileName = findViewById(R.id.edit_text_file_name);
+
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
-
+        mEditTextFileName = findViewById(R.id.edit_text_file_name);
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 

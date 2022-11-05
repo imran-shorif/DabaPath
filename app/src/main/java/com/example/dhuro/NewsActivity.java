@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+public class NewsActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
     private ImageAdapter mAdapter;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
@@ -54,7 +54,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // Set Home selected
-        bottomNavigationView.setSelectedItemId(R.id.blogs);
+        bottomNavigationView.setSelectedItemId(R.id.news);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -71,10 +71,10 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.news:
-                    startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.blogs:
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
+                    overridePendingTransition(0, 0);
                     return true;
             }
             return true;
@@ -89,11 +89,11 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
         mUploads = new ArrayList<>();
 
-        mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
+        mAdapter = new ImageAdapter(NewsActivity.this, mUploads);
 
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(ImagesActivity.this);
+        mAdapter.setOnItemClickListener(NewsActivity.this);
 
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
@@ -118,7 +118,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ImagesActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(NewsActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
@@ -197,7 +197,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
         imageRef.delete().addOnSuccessListener(aVoid -> {
             mDatabaseRef.child(selectedKey).removeValue();
-            Toast.makeText(ImagesActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewsActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
         });
     }
 

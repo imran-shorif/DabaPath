@@ -60,8 +60,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public ImageViewHolder(View itemView) {
             super(itemView);
 
-            textViewName = itemView.findViewById(R.id.text_view_name);
-            imageView = itemView.findViewById(R.id.image_view_upload);
+            textViewName = itemView.findViewById(R.id.text_view_name_news);
+            imageView = itemView.findViewById(R.id.image_view_upload_news);
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
