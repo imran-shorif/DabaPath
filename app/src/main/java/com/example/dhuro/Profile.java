@@ -16,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends AppCompatActivity {
-
+//    private TextView nameTextView, usernameTextView, emailTextView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
 
@@ -25,6 +25,24 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+//        FirebaseFirestore fstore = FirebaseFirestore.getInstance();
+//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+//
+//        nameTextView = findViewById(R.id.user_name);
+//        usernameTextView = findViewById(R.id.user_username);
+//        emailTextView = findViewById(R.id.user_email);
+//
+//        String userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+//
+//        DocumentReference documentReference = fstore.collection("users").document(userID);
+//
+//        documentReference.addSnapshotListener((Executor) this, (documentSnapshot, error) -> {
+//            assert documentSnapshot != null;
+//            nameTextView.setText(documentSnapshot.getString("identifier"));
+////            usernameTextView.setText(documentSnapshot.getString("username"));
+////            emailTextView.setText(documentSnapshot.getString("email"));
+//        });
 
         initInstances();
 
