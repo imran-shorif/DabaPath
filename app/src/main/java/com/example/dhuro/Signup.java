@@ -8,13 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Signup extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -26,6 +24,8 @@ public class Signup extends AppCompatActivity {
     EditText sCPassword;
     Button btnSignup;
     Button btnToLogin;
+    private String userID;
+    private FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class Signup extends AppCompatActivity {
         sMail = findViewById(R.id.enterMail);
         sPassword = findViewById(R.id.enterPassword);
         sCPassword = findViewById(R.id.entryCPassword);
+        fstore = FirebaseFirestore.getInstance();
 
         btnSignup = findViewById(R.id.btnSignup);
         btnToLogin = findViewById(R.id.btnToLogin);
@@ -84,16 +85,34 @@ public class Signup extends AppCompatActivity {
             sCPassword.requestFocus();
         }
         else {
-            mAuth.createUserWithEmailAndPassword(sMailText, sPasswordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(Signup.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Signup.this, Login.class));
-                    }
-                    else{
-                        Toast.makeText(Signup.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+            mAuth.createUserWithEmailAndPassword(sMailText, sPasswordText).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    Toast.makeText(Signup.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+
+                    userID = mAuth.getCurrentUser().getUid();
+
+                    DocumentReference documentReference = fstore.collection("users").document(userID);
+                    documentReference.addSnapshotListener(this, (documentSnapshot, e) -> {
+                        sMail.setText(documentSnapshot.getString("email"));
+                        sName.setText(documentSnapshot.getString("name"));
+                        sUsername.setText(documentSnapshot.getString("username"));
+                    });
+
+
+
+//                    Map<String,Object> user = new HashMap<>();
+//                    user.put("name",sName);
+//                    user.put("userName", sUsername);
+//                    user.put("email",sMail);
+
+//                    documentReference.set(user).addOnSuccessListener(unused ->
+//                                    Log.d(TAG, "user profile is created for " + userID))
+//                            .addOnFailureListener(e ->
+//                                    Log.d(TAG, e.toString()));
+                    startActivity(new Intent(Signup.this, Login.class));
+                }
+                else{
+                    Toast.makeText(Signup.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

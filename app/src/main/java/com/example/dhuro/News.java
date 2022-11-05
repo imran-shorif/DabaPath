@@ -54,7 +54,7 @@ public class News extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blogs);
+        setContentView(R.layout.activity_news);
 
         initInstances();
 
@@ -89,13 +89,13 @@ public class News extends AppCompatActivity {
 
         Button mButtonChooseImage = findViewById(R.id.button_choose_image);
         Button mButtonUpload = findViewById(R.id.button_upload);
-        TextView mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+        TextView mTextViewShowUploads = findViewById(R.id.text_view_show_uploads_news);
 
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mStorageRef = FirebaseStorage.getInstance().getReference("news");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("news");
 
         mButtonChooseImage.setOnClickListener(v -> openFileChooser());
 
@@ -107,11 +107,11 @@ public class News extends AppCompatActivity {
             }
         });
 
-        mTextViewShowUploads.setOnClickListener(v -> openImagesActivity());
+        mTextViewShowUploads.setOnClickListener(v -> openNewsActivity());
     }
 
-    private void openImagesActivity() {
-        Intent intent = new Intent(News.this, ImagesActivity.class);
+    private void openNewsActivity() {
+        Intent intent = new Intent(News.this, NewsActivity.class);
         startActivity(intent);
     }
 

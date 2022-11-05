@@ -32,8 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class NewsActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
-    private ImageAdapter mAdapter;
+public class NewsActivity extends AppCompatActivity implements NewsAdapter.OnItemClickListener {
+    private NewsAdapter mAdapter;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     private ProgressBar mProgressCircle;
@@ -47,7 +47,7 @@ public class NewsActivity extends AppCompatActivity implements ImageAdapter.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_images);
+        setContentView(R.layout.activity_news2);
 
         initInstances();
 
@@ -89,14 +89,14 @@ public class NewsActivity extends AppCompatActivity implements ImageAdapter.OnIt
 
         mUploads = new ArrayList<>();
 
-        mAdapter = new ImageAdapter(NewsActivity.this, mUploads);
+        mAdapter = new NewsAdapter(NewsActivity.this, mUploads);
 
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(NewsActivity.this);
 
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("news");
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -123,9 +123,9 @@ public class NewsActivity extends AppCompatActivity implements ImageAdapter.OnIt
             }
         });
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab2);
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), Blogs.class);
+            Intent intent = new Intent(getApplicationContext(), News.class);
             startActivity(intent);
         });
     }
