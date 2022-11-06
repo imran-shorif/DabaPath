@@ -10,6 +10,7 @@
     tools:ignore="HardcodedText"
     android:background="#1c1c1d">
 <RelativeLayout
+    android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ImagesActivity">
@@ -24,7 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="664dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
