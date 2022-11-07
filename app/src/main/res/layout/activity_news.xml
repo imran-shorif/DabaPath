@@ -81,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Insert blog contents here" />
+            tools:text="Insert news contents here" />
 
         <Button
             android:id="@+id/button_upload"
